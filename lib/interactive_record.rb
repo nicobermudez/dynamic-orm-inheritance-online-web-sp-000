@@ -25,6 +25,7 @@ class InteractiveRecord
       self.send("#{property}=", value)
     end
   end
+  
   def self.create_table
   sql =  <<-SQL
     CREATE TABLE IF NOT EXISTS dogs (
