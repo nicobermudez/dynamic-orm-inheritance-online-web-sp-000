@@ -25,6 +25,16 @@ class InteractiveRecord
       self.send("#{property}=", value)
     end
   end
+  def self.create_table
+  sql =  <<-SQL
+    CREATE TABLE IF NOT EXISTS dogs (
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      breed TEXT
+      )
+  SQL
+  DB[:conn].execute(sql)
+end
 
   def save
     sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
